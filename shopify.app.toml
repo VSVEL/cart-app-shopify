@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8d42961878454c1e8197fb149722ca4b"
+name = "Cart App"
+handle = "cart-app-63"
+application_url = "https://moments-browsers-youth-duplicate.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2025-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "carts/create" ]
+  uri = "/webhooks/cart-create"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_cart_transforms,read_orders,read_products,write_products"
+
+[auth]
+redirect_urls = ["https://moments-browsers-youth-duplicate.trycloudflare.com/auth/callback", "https://moments-browsers-youth-duplicate.trycloudflare.com/auth/shopify/callback", "https://moments-browsers-youth-duplicate.trycloudflare.com/api/auth/callback"]
+
+[pos]
+embedded = false
