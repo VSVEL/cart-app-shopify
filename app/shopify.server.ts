@@ -18,7 +18,7 @@ console.log(process.env.SHOPIFY_API_SECRET);
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
-  apiVersion: ApiVersion.January25,
+  apiVersion: ApiVersion.July25,
   scopes: process.env.SHOPIFY_API_SCOPES?.split(",") || [],
   appUrl: process.env.SHOPIFY_APP_URL || "",
   authPathPrefix: "/auth",
@@ -35,12 +35,12 @@ const shopify = shopifyApp({
     CARTS_CREATE: {
       deliveryMethod: DeliveryMethod.Http,
       callbackUrl: "/webhooks/cart-create",
-      callback: async (_topic, shop, body) => {
-        const payload = JSON.parse(body);
-        console.log(`📦 Cart created on shop ${shop}:`, payload);
-      }
     },
+    CARTS_UPDATE: {
+      deliveryMethod: DeliveryMethod.Http, 
+      callbackUrl: "/webhooks/cart-update",
   },
+    },
   hooks: {
     afterAuth: async ({ session }) => {
       await shopify.registerWebhooks({ session });
