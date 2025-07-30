@@ -32,17 +32,25 @@ model Session {
 }
 
 model Cart {
-  id             String   @id
+  id             String     @id
   shop           String
-  customerEmail  String?     // Nullable for guest users
+  customerEmail  String?
   isGuest        Boolean
   createdAt      DateTime
   status         CartStatus @default(PENDING)
-  checkedAt      DateTime?  // When you check if order was placed
-  emailSentAt    DateTime?  // When follow-up email is sent
-  convertedAt    DateTime?  // If order was placed later
-  recoveryLink   String?    // Optional: recovery URL
-  cartData       Json?      // Optional: raw payload for debug or retry
+  checkedAt      DateTime?
+  emailSentAt    DateTime?
+  convertedAt    DateTime?
+  recoveryLink   String?
+  ipAddress      String?
+  tags           CartTag[]  // <-- relation
+}
+
+model CartTag {
+  id      String   @id @default(uuid())
+  tag     String
+  cart    Cart     @relation(fields: [cartId], references: [id])
+  cartId  String
 }
 
 enum CartStatus {

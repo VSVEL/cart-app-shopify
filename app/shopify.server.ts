@@ -8,13 +8,6 @@ import {
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import prisma from "./db.server";
 
-console.log("Initializing Shopify app...");
-console.log(process.env.scopes);
-console.log(process.env.SHOPIFY_API_KEY);
-console.log(process.env.SHOPIFY_API_SECRET);
-
-
-
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
@@ -44,6 +37,7 @@ const shopify = shopifyApp({
   hooks: {
     afterAuth: async ({ session }) => {
       await shopify.registerWebhooks({ session });
+      // If you need to set cookies, do it in your route handler, not here.
     },
   },
 });
