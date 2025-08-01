@@ -3,7 +3,7 @@
 client_id = "8d42961878454c1e8197fb149722ca4b"
 name = "Cart App"
 handle = "cart-app-63"
-application_url = "https://1bae36ed1457.ngrok-free.app"
+application_url = "https://94a2878373df.ngrok-free.app"
 embedded = true
 
 [build]
@@ -34,7 +34,7 @@ api_version = "2025-07"
 scopes = "read_cart_transforms,read_customers,read_orders,read_products,write_products"
 
 [auth]
-redirect_urls = ["https://1bae36ed1457.ngrok-free.app/auth/callback", "https://1bae36ed1457.ngrok-free.app/auth/shopify/callback", "https://1bae36ed1457.ngrok-free.app/api/auth/callback"]
+redirect_urls = ["https://94a2878373df.ngrok-free.app/auth/callback", "https://94a2878373df.ngrok-free.app/auth/shopify/callback", "https://94a2878373df.ngrok-free.app/api/auth/callback"]
 
 [pos]
 embedded = false

@@ -135,6 +135,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
     // If the code reaches here, the webhook is authentic.
     logger.info(`✅ Webhook validated. Topic: ${topic}, Shop: ${shop}`);
+    logger.info("📦 Cart payload:", payload);
 
     const cartId = payload.id;
     const cartToken = payload.token;

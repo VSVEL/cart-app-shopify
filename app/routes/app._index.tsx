@@ -87,17 +87,18 @@ export default function Index() {
     });
   };
 
-  // const getCartItems = (cart: any) => {
-  //   const cartData = cart.cartData as any;
-  //   if (!cartData || !cartData.line_items) {
-  //     return [];
-  //   }
-  //   return cartData.line_items.map((item: any) => ({
-  //     title: item.title || "Unknown Product",
-  //     quantity: item.quantity || 0,
-  //     price: item.price || "0.00",
-  //   }));
-  // };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const getCartItems = (cart: any) => {
+    const cartData = cart.cartData as any;
+    if (!cartData || !cartData.line_items) {
+      return [];
+    }
+    return cartData.line_items.map((item: any) => ({
+      title: item.title || "Unknown Product",
+      quantity: item.quantity || 0,
+      price: item.price || "0.00",
+    }));
+  };
 
   const getCartStatus = (cart: any) => {
     switch (cart.status) {

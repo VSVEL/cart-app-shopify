@@ -25,10 +25,6 @@ const shopify = shopifyApp({
     ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] }
     : {}),
   webhooks: {
-    CARTS_CREATE: {
-      deliveryMethod: DeliveryMethod.Http,
-      callbackUrl: "/webhooks/cart-create",
-    },
     CARTS_UPDATE: {
       deliveryMethod: DeliveryMethod.Http, 
       callbackUrl: "/webhooks/cart-update",
